@@ -43,6 +43,13 @@ module.exports = {
           cacheDirectory: true,
           presets: ['react', 'es2015'] 
         }
+      },
+      {
+        test: /\.(?:png|jpg|svg)$/,
+        loader: 'url-loader',
+        query: {
+          limit: 10000
+        }
       }
     ]
   },

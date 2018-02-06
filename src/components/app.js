@@ -4,9 +4,11 @@ import Header from './header';
 export default class App extends Component {
   render() {
     return (
-    	<Header>
-      		<div>Empty div</div>
-      	</Header>
+    	
+      		<div>
+      			<Header/>
+      			Empty div
+      		</div>
     );
   }
 }
