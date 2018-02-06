@@ -5,12 +5,13 @@
   "main": "index.js",
   "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
   "scripts": {
+    "build": "webpack",
     "start": "webpack-dev-server",
+    "watch": "webpack --watch",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
-    "test:watch": "npm run test -- --watch",
-    "watch": "webpack --watch"
+    "test:watch": "npm run test -- --watch"
   },
-  "author": "",
+  "author": "Simona Adriani",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.2.5",
@@ -22,8 +23,10 @@
     "browser-sync-webpack-plugin": "^1.2.0",
     "chai": "^3.5.0",
     "chai-jquery": "^2.0.0",
+    "clean-webpack-plugin": "^0.1.18",
     "css-loader": "^0.28.9",
     "cssnano": "^3.10.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "jquery": "^2.2.1",
     "jsdom": "^8.1.0",

@@ -1,6 +1,8 @@
 const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -8,7 +10,7 @@ module.exports = {
   ],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, 'dist')
   }/*,
   devServer: {
     contentBase: './',
@@ -16,6 +18,9 @@ module.exports = {
     watchContentBase: true,
     port: 3000
   }*/,
+  devServer:{
+    contentBase: './dist'
+  },
   resolve: {
     extensions: ['.js','.jsx','.css','.scss']
   },
@@ -23,38 +28,36 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader',
           {
             loader: 'postcss-loader',
             options: {
               plugins: () => [autoprefixer()]
             }
-          }
-        ]
+          }]
+        })
       },
       {
         test: /\.scss$/,
-        use: [
-          'style-loader',
-          'css-loader',
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader',
           {
             loader: 'postcss-loader',
             options: {
               plugins: () => [autoprefixer()]
             }
           },
-          'sass-loader'
-        ]
+          'sass-loader']
+        })
       },
-      
       {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          cacheDirectory: true,
           presets: ['react', 'es2015'] 
         }
       },
@@ -68,12 +71,14 @@ module.exports = {
     ]
   },
   plugins:[
+    new CleanWebpackPlugin(['dist']),
+    new ExtractTextPlugin("styles.css"),
     new BrowserSyncPlugin(
         // BrowserSync options
         {
           // browse to http://localhost:3000/ during development
           host: 'localhost',
-          port: 3000,
+          port: 8080,
           // proxy the Webpack Dev Server endpoint
           // (which should be serving on http://localhost:3100/)
           // through BrowserSync
