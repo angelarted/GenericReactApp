@@ -2,7 +2,7 @@ const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+//const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -70,7 +70,7 @@ module.exports = {
   },
   plugins:[
     //new CleanWebpackPlugin(['dist']),
-    new ExtractTextPlugin("styles.css")/*,
+    new ExtractTextPlugin("styles.css"),
     new BrowserSyncPlugin(
         // BrowserSync options
         {
@@ -88,6 +88,6 @@ module.exports = {
           // and let Webpack Dev Server take care of this
           reload: false
         }
-      )*/
+      )
   ]
 };

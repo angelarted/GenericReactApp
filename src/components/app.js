@@ -7,7 +7,7 @@ export default class App extends Component {
     	
       		<div>
       			<Header/>
-      			Empty div
+      			Io sono un div vuoto iniettato attraverso un modulo
       		</div>
     );
   }

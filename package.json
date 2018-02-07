@@ -6,7 +6,7 @@
   "repository": "https://github.com/angelarted/GenericReactApp.git",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server",
     "watch": "webpack --watch"
   },
   "author": "Simona Adriani",

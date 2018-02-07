@@ -12,4 +12,4 @@ import Header from './components/header';
 
 ReactDOM.render(
     <App />
-, document.querySelector('.app'));
+, document.getElementById('app'));
