@@ -5,9 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
+  entry: './src/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -71,14 +69,14 @@ module.exports = {
     ]
   },
   plugins:[
-    new CleanWebpackPlugin(['dist']),
-    new ExtractTextPlugin("styles.css"),
+    //new CleanWebpackPlugin(['dist']),
+    new ExtractTextPlugin("styles.css")/*,
     new BrowserSyncPlugin(
         // BrowserSync options
         {
           // browse to http://localhost:3000/ during development
           host: 'localhost',
-          port: 8080,
+          port: 3000,
           // proxy the Webpack Dev Server endpoint
           // (which should be serving on http://localhost:3100/)
           // through BrowserSync
@@ -88,8 +86,8 @@ module.exports = {
         {
           // prevent BrowserSync from reloading the page
           // and let Webpack Dev Server take care of this
-          reload: true
+          reload: false
         }
-      )
+      )*/
   ]
 };

@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "description": "Simple starter package for Redux, React, Babel, SASS e browser sync",
   "main": "index.js",
-  "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
+  "repository": "https://github.com/angelarted/GenericReactApp.git",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server",
-    "watch": "webpack --watch",
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
-    "test:watch": "npm run test -- --watch"
+    "start": "webpack-dev-server --open",
+    "watch": "webpack --watch"
   },
   "author": "Simona Adriani",
   "license": "ISC",
@@ -38,7 +36,7 @@
     "style-loader": "^0.18.2",
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^1.14.0"
+    "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
     "babel-preset-stage-1": "^6.1.18",
