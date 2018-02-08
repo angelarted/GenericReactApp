@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Header from './header';
+import Main from './main';
 
 export default class App extends Component {
   render() {
     return (
-    	
-      		<div>
-      			<Header/>
-      			Io sono un div vuoto iniettato attraverso un modulo
-      		</div>
+    	<div>
+    		<Header />
+      		<Main />
+      	</div>
     );
   }
 }

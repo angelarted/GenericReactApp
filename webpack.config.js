@@ -17,7 +17,8 @@ module.exports = {
     port: 3000
   }*/,
   devServer:{
-    contentBase: './dist'
+    contentBase: './dist',
+    historyApiFallback: true
   },
   resolve: {
     extensions: ['.js','.jsx','.css','.scss']
