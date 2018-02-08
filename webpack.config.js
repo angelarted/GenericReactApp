@@ -22,33 +22,49 @@ module.exports = {
   resolve: {
     extensions: ['.js','.jsx','.css','.scss']
   },
+  devtool: 'inline-source-map',
   module: {
     rules: [
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [autoprefixer()]
+          use: [
+            {
+              loader: 'css-loader',
+              options: { sourceMap: true }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [autoprefixer()],
+                sourceMap: true
+              }
             }
-          }]
+          ]
         })
       },
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [autoprefixer()]
+          use: [
+            { 
+              loader: 'css-loader',
+              options: { sourceMap: true }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [autoprefixer()],
+                sourceMap: true
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: { sourceMap: true }
             }
-          },
-          'sass-loader']
+          ]
         })
       },
       {
